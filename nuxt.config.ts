@@ -30,11 +30,6 @@ export default defineNuxtConfig({
   // css
   css: ['~/assets/style/index.less'],
 
-  typescript: {
-    strict: true,
-    shim: false,
-  },
-
   // build
   build: {
     transpile: ['tdesign-vue-next'],
