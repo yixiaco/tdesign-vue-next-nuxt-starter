@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "generate": "nuxi generate",
+    "start": "node .output/server/index.mjs",
+    "preview": "nuxi preview"
+  },
+  "devDependencies": {
+    "tdesign-icons-vue-next": "^0.1.1",
+    "tdesign-vue-next": "^0.14.1-alpha.3",
+    "vite-svg-loader": "^3.3.0",
+    "nuxt": "3.0.0-rc.3",
+    "less": "^4.1.2",
+    "@unocss/nuxt": "^0.33.2",
+    "@vueuse/nuxt": "^8.4.2"
+  }
+}

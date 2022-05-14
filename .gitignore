@@ -1,0 +1,12 @@
+node_modules
+dist/
+tmp*
+temp*
+.idea/
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+*-lock.json
