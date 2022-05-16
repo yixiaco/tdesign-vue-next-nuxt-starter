@@ -36,7 +36,7 @@ export default defineNuxtConfig({
   },
 
   // build modules
-  modules: ['tdesign-vue-next/es/nuxt', '@vueuse/nuxt', '@unocss/nuxt'],
+  modules: ['tdesign-vue-next/es/nuxt', '@vueuse/nuxt', '@unocss/nuxt', '@pinia/nuxt'],
 
   // vueuse
   vueuse: {

@@ -10,3 +10,4 @@ temp*
 .output
 .env
 *-lock.json
+*.lock
