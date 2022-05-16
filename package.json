@@ -13,7 +13,10 @@
     "vite-svg-loader": "^3.3.0",
     "nuxt": "3.0.0-rc.3",
     "less": "^4.1.2",
-    "@unocss/nuxt": "^0.33.2",
-    "@vueuse/nuxt": "^8.4.2"
+    "@unocss/nuxt": "^0.33.4",
+    "@vueuse/nuxt": "^8.4.2",
+    "@vueuse/core": "^8.4.2",
+    "@iconify-json/carbon": "^1.1.4",
+    "@iconify-json/twemoji": "^1.1.4"
   }
 }
