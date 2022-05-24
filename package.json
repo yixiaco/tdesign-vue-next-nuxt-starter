@@ -18,7 +18,7 @@
     "nuxt": "3.0.0-rc.3",
     "pinia": "^2.0.14",
     "tdesign-icons-vue-next": "^0.1.1",
-    "tdesign-vue-next": "0.14.2-alpha.2",
+    "tdesign-vue-next": "0.15.1",
     "vite-svg-loader": "^3.3.0"
   }
 }
