@@ -2,9 +2,7 @@
   <div>
     <h1>Hi! {{ $route.params.name }} , counter: {{ counter }}</h1>
     <div>
-      <t-button shape="square" variant="outline" @click="$router.back()">
-        Back
-      </t-button>
+      <t-button shape="square" variant="outline" @click="$router.back()"> Back </t-button>
     </div>
   </div>
 </template>
@@ -13,6 +11,4 @@
 const counter = useCounter();
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

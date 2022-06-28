@@ -1,3 +1,3 @@
 export const useCounter = () => {
-    return useState('counter', () => 0)
-}
+  return useState('counter', () => 0);
+};

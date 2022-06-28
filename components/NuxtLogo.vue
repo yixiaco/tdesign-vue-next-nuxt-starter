@@ -1,10 +1,5 @@
 <template>
-  <svg
-    viewBox="0 0 221 65"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    class="h-8"
-  >
+  <svg viewBox="0 0 221 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
     <g clip-path="url(#a)">
       <path
         fill="currentColor"

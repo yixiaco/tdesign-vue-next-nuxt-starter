@@ -2,23 +2,68 @@
   "private": true,
   "scripts": {
     "build": "nuxi build",
-    "dev": "nuxi dev",
+    "dev": "nuxi dev -p=3000",
     "generate": "nuxi generate",
-    "start": "node .output/server/index.mjs",
+    "static": "npm run build && npm run generate",
     "preview": "nuxi preview"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.4",
     "@iconify-json/twemoji": "^1.1.4",
     "@pinia/nuxt": "^0.1.9",
-    "@unocss/nuxt": "^0.33.4",
-    "@vueuse/core": "^8.4.2",
-    "@vueuse/nuxt": "^8.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "@vueuse/core": "^8.6.0",
+    "@vueuse/nuxt": "^8.6.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "dayjs": "^1.11.0",
+    "echarts": "^5.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.16.0",
+    "eslint-plugin-vue-scoped-css": "^2.2.0",
+    "hex-to-hsl": "^1.0.2",
+    "husky": "^8.0.1",
     "less": "^4.1.2",
+    "lint-staged": "^12.3.4",
+    "nprogress": "^1.0.0-1",
     "nuxt": "3.0.0-rc.4",
+    "nuxt-lodash": "^2.2.0",
     "pinia": "^2.0.14",
+    "prettier": "^2.6.2",
+    "qrcode.vue": "^3.3.3",
+    "qs": "^6.10.3",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-less": "^1.0.1",
+    "stylelint-order": "^4.1.0",
     "tdesign-icons-vue-next": "^0.1.2",
-    "tdesign-vue-next": "0.17.1",
-    "vite-svg-loader": "^3.3.0"
+    "tdesign-vue-next": "^0.17.1",
+    "tvision-color": "^1.4.0",
+    "typescript": "^4.7.3",
+    "vite-svg-loader": "^3.3.0",
+    "vue-color-kit": "^1.0.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "prettier --write",
+      "npm run lint:fix",
+      "git add ."
+    ],
+    "*.{html,vue,vss,sass,less}": [
+      "npm run stylelint:fix",
+      "git add ."
+    ]
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
