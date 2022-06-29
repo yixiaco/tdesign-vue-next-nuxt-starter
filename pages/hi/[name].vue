@@ -9,6 +9,9 @@
 
 <script lang="ts" setup>
 const counter = useCounter();
+definePageMeta({
+  title: 'hi',
+});
 </script>
 
 <style scoped></style>

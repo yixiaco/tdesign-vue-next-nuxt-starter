@@ -1,11 +1,9 @@
 <template>
-  <NuxtPage v-if="!isRefreshing" v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
-      <keep-alive :include="aliveViews">
-        <component :is="Component" />
-      </keep-alive>
-    </transition>
-  </NuxtPage>
+  <transition v-if="!isRefreshing" name="fade" mode="out-in">
+    <keep-alive :include="aliveViews">
+      <slot />
+    </keep-alive>
+  </transition>
 </template>
 
 <script setup lang="ts">

@@ -33,7 +33,7 @@ export default defineComponent({
     TTabPanel,
     TDropdownMenu,
   },
-  setup() {
+  setup(props, { slots }) {
     const route = useRoute();
     const router = useRouter();
     const permissionStore = usePermissionStore();
@@ -248,7 +248,7 @@ export default defineComponent({
           )}
           <t-content class={`${prefix}-content-layout`}>
             {showBreadcrumb && <LayoutBreadcrumb />}
-            <LayoutContent />
+            <LayoutContent>{slots.default?.()}</LayoutContent>
           </t-content>
           {showFooter && renderFooter()}
         </t-layout>
