@@ -1,0 +1,37 @@
+<template>
+  <NuxtPage v-if="!isRefreshing" v-slot="{ Component }">
+    <transition name="fade" mode="out-in">
+      <keep-alive :include="aliveViews">
+        <component :is="Component" />
+      </keep-alive>
+    </transition>
+  </NuxtPage>
+</template>
+
+<script setup lang="ts">
+import { ComputedRef } from 'vue';
+
+const aliveViews = computed(() => {
+  const tabsRouterStore = useTabsRouterStore();
+
+  return tabsRouterStore.tabRouters.filter((route) => route.isAlive).map((route) => route.name);
+}) as ComputedRef<string[]>;
+
+const isRefreshing = computed(() => {
+  const tabsRouterStore = useTabsRouterStore();
+  const { refreshing } = tabsRouterStore;
+  return refreshing;
+});
+</script>
+<style lang="less" scoped>
+@import 'style/variables';
+
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity var(--tdvns-anim-duration-slow) var(--tdvns-anim-time-fn-easing);
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

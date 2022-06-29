@@ -198,9 +198,10 @@ export function insertThemeStylesheet(theme: string, colorMap: TColorToken, mode
   const isDarkMode = mode === 'dark';
   const root = !isDarkMode ? `:root[theme-color='${theme}']` : `:root[theme-color='${theme}'][theme-mode='dark']`;
 
-  const styleSheet = document.createElement('style');
-  styleSheet.type = 'text/css';
-  styleSheet.innerText = `${root}{
+  if (process.browser) {
+    const styleSheet = document.createElement('style');
+    styleSheet.type = 'text/css';
+    styleSheet.innerText = `${root}{
     --td-brand-color: ${colorMap['--td-brand-color']};
     --td-brand-color-1: ${colorMap['--td-brand-color-1']};
     --td-brand-color-2: ${colorMap['--td-brand-color-2']};
@@ -214,5 +215,6 @@ export function insertThemeStylesheet(theme: string, colorMap: TColorToken, mode
     --td-brand-color-10: ${colorMap['--td-brand-color-10']};
   }`;
 
-  document.head.appendChild(styleSheet);
+    document.head.appendChild(styleSheet);
+  }
 }

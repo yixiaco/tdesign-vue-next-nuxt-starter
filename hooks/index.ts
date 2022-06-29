@@ -18,16 +18,20 @@ export const useChart = (domId: string): Ref<echarts.ECharts> => {
   };
 
   onMounted(() => {
-    if (!chartContainer) {
+    if (!chartContainer && process.browser) {
       chartContainer = document.getElementById(domId) as HTMLCanvasElement;
     }
     selfChart.value = echarts.init(chartContainer);
   });
 
-  window.addEventListener('resize', updateContainer, false);
+  if (process.browser) {
+    window.addEventListener('resize', updateContainer, false);
+  }
 
   onUnmounted(() => {
-    window.removeEventListener('resize', updateContainer);
+    if (process.browser) {
+      window.removeEventListener('resize', updateContainer);
+    }
   });
 
   return selfChart;

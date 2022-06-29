@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 
   // build
   build: {
-    transpile: ['tdesign-vue-next/es'],
+    transpile: ['tdesign-vue-next'],
   },
 
   // build modules
@@ -57,7 +57,7 @@ export default defineNuxtConfig({
   },
 
   // watch 属性允许您监视自定义文件以重新启动服务器
-  watch: ['~/config/*.ts', '~/api/**/*.ts', '~/utils/*.ts', '~/constants/*.ts'],
+  watch: ['~/config/*.ts', '~/api/**/*.ts', '~/utils/*.ts', '~/constants/*.ts', '~/types/*.ts'],
 
   typescript: {
     shim: false,
