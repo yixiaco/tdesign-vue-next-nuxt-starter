@@ -2,7 +2,7 @@
   <div :style="style" class="color-container" />
 </template>
 <script setup lang="ts">
-import { getBrandColor } from '@/config/color';
+import { getBrandColor } from '~/config/color';
 
 const store = useSettingStore();
 

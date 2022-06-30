@@ -1,4 +1,4 @@
-import { RouteRecordNormalized, RouteRecordRaw } from 'vue-router';
+import { RouteRecordName, RouteRecordNormalized, RouteRecordRaw } from 'vue-router';
 import { defineStore } from 'pinia';
 
 /**
@@ -7,8 +7,8 @@ import { defineStore } from 'pinia';
  * @param roles 用户角色
  */
 function filterPermissionsRouters(routes: Array<RouteRecordNormalized | RouteRecordRaw>, roles: Array<unknown>) {
-  const res = [];
-  const removeRoutes = [];
+  const res = <Array<RouteRecordNormalized | RouteRecordRaw>>[];
+  const removeRoutes = <Array<RouteRecordNormalized | RouteRecordRaw>>[];
   routes.forEach((route) => {
     if (route.children && route.children.length !== 0) {
       const { accessedRouters, removeRoutes: remove } = filterPermissionsRouters(route.children, roles);
@@ -17,9 +17,6 @@ function filterPermissionsRouters(routes: Array<RouteRecordNormalized | RouteRec
     } else if (!route.meta?.asyncRouter) {
       // 如果设置了非动态路由，则直接加入到路由中
       res.push(route);
-    } else if (route.meta.hidden) {
-      // 隐藏路由菜单
-      removeRoutes.push(route);
     } else if (roles.includes('all')) {
       res.push(route);
     } else {
@@ -39,14 +36,36 @@ export const usePermissionStore = defineStore('permission', () => {
   const routes = router.getRoutes();
 
   const whiteListRouters = ref(['/login']);
-  const routers = ref([]);
-  const removeRoutes = ref([]);
+  const routers = ref<Array<RouteRecordNormalized | RouteRecordRaw>>([]);
+  const removeRoutes = ref<Array<RouteRecordNormalized | RouteRecordRaw>>([]);
 
+  // 初始化路由
   function initRoutes(roles: Array<unknown>) {
     const { accessedRouters, removeRoutes: remove } = filterPermissionsRouters(routes, roles);
     routers.value = accessedRouters;
     removeRoutes.value = remove;
   }
 
-  return { whiteListRouters, routers, removeRoutes, initRoutes };
+  // 重置路由
+  function restore() {
+    routers.value = [];
+    removeRoutes.value = [];
+  }
+
+  // 是否存在路由
+  function hasRoute(name: RouteRecordName, router = routers.value) {
+    for (const r of router) {
+      if (r.name === name) {
+        return true;
+      }
+      if (r.children) {
+        if (hasRoute(name, r.children) === true) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  return { whiteListRouters, routers, removeRoutes, initRoutes, restore, hasRoute };
 });

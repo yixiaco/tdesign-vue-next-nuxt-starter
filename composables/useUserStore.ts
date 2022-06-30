@@ -1,5 +1,4 @@
-import { defineStore } from 'pinia';
-import { TOKEN_NAME } from '~/config/global';
+import { acceptHMRUpdate, defineStore } from 'pinia';
 
 const InitUserInfo = {
   roles: [],
@@ -7,7 +6,7 @@ const InitUserInfo = {
 
 export const useUserStore = defineStore('user', () => {
   // 默认token不走权限
-  const token = ref(localStorage.getItem(TOKEN_NAME) || 'main_token');
+  const token = ref('main_token');
   const userInfo = ref(InitUserInfo);
 
   const roles = computed(() => userInfo.value?.roles);
@@ -65,12 +64,11 @@ export const useUserStore = defineStore('user', () => {
     userInfo.value = await mockRemoteUserInfo(token.value);
   }
 
-  async function logout() {
-    localStorage.removeItem(TOKEN_NAME);
+  function logout() {
     token.value = '';
     userInfo.value = InitUserInfo;
   }
-  async function removeToken() {
+  function removeToken() {
     token.value = '';
   }
 
@@ -84,3 +82,5 @@ export const useUserStore = defineStore('user', () => {
     removeToken,
   };
 });
+
+if (import.meta.hot) import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot));

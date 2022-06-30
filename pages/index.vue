@@ -28,6 +28,7 @@ const name = ref('');
 
 definePageMeta({
   title: '首页',
+  indexSort: 0,
 });
 </script>
 

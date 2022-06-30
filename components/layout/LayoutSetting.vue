@@ -150,11 +150,9 @@ const changeColor = (hex: string) => {
 };
 
 onMounted(() => {
-  if (process.browser) {
-    document.querySelector('.dynamic-color-btn').addEventListener('click', () => {
-      isColoPickerDisplay.value = true;
-    });
-  }
+  document.querySelector('.dynamic-color-btn').addEventListener('click', () => {
+    isColoPickerDisplay.value = true;
+  });
 });
 
 const onPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
@@ -234,8 +232,6 @@ watchEffect(() => {
 
 .setting-layout-color-group {
   display: inline-flex;
-  width: 36px;
-  height: 36px;
   justify-content: center;
   align-items: center;
   border-radius: 50% !important;

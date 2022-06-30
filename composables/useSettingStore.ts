@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { COLOR_TOKEN, LIGHT_CHART_COLORS, DARK_CHART_COLORS, TColorSeries } from '@/config/color';
-import STYLE_CONFIG from '@/config/style';
+import { COLOR_TOKEN, LIGHT_CHART_COLORS, DARK_CHART_COLORS, TColorSeries } from '~/config/color';
+import STYLE_CONFIG from '~/config/style';
 
 const state = {
   ...STYLE_CONFIG,
