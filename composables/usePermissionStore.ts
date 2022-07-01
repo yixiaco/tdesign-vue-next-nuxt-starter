@@ -1,23 +1,26 @@
-import { RouteRecordName, RouteRecordNormalized, RouteRecordRaw } from 'vue-router';
 import { defineStore } from 'pinia';
+import { RouteLocationNormalized } from 'vue-router';
+import { defaultRouterList, asyncRouterList } from '~/router';
+import { MenuRoute } from '~/types/interface';
 
 /**
  * 过滤路由权限
  * @param routes 路由
  * @param roles 用户角色
  */
-function filterPermissionsRouters(routes: Array<RouteRecordNormalized | RouteRecordRaw>, roles: Array<unknown>) {
-  const res = <Array<RouteRecordNormalized | RouteRecordRaw>>[];
-  const removeRoutes = <Array<RouteRecordNormalized | RouteRecordRaw>>[];
+function filterPermissionsRouters(routes: Array<MenuRoute>, roles: Array<unknown>) {
+  const res = <Array<MenuRoute>>[];
+  const removeRoutes = <Array<MenuRoute>>[];
   routes.forEach((route) => {
     if (route.children && route.children.length !== 0) {
       const { accessedRouters, removeRoutes: remove } = filterPermissionsRouters(route.children, roles);
-      route.children = accessedRouters;
+      if (accessedRouters.length > 0) {
+        route.children = accessedRouters;
+        res.push(route);
+      }
       removeRoutes.push(...remove);
-    } else if (!route.meta?.asyncRouter) {
-      // 如果设置了非动态路由，则直接加入到路由中
-      res.push(route);
     } else if (roles.includes('all')) {
+      // 拥有全部权限
       res.push(route);
     } else {
       const roleCode = route.meta?.roleCode || route.name;
@@ -32,17 +35,14 @@ function filterPermissionsRouters(routes: Array<RouteRecordNormalized | RouteRec
 }
 
 export const usePermissionStore = defineStore('permission', () => {
-  const router = useRouter();
-  const routes = router.getRoutes();
-
   const whiteListRouters = ref(['/login']);
-  const routers = ref<Array<RouteRecordNormalized | RouteRecordRaw>>([]);
-  const removeRoutes = ref<Array<RouteRecordNormalized | RouteRecordRaw>>([]);
+  const routers = ref<Array<MenuRoute>>([]);
+  const removeRoutes = ref<Array<MenuRoute>>([]);
 
   // 初始化路由
   function initRoutes(roles: Array<unknown>) {
-    const { accessedRouters, removeRoutes: remove } = filterPermissionsRouters(routes, roles);
-    routers.value = accessedRouters;
+    const { accessedRouters, removeRoutes: remove } = filterPermissionsRouters(asyncRouterList, roles);
+    routers.value = defaultRouterList.concat(accessedRouters);
     removeRoutes.value = remove;
   }
 
@@ -52,14 +52,17 @@ export const usePermissionStore = defineStore('permission', () => {
     removeRoutes.value = [];
   }
 
-  // 是否存在路由
-  function hasRoute(name: RouteRecordName, router = routers.value) {
-    for (const r of router) {
-      if (r.name === name) {
+  // 是否存在路由权限
+  function hasRoute(to: RouteLocationNormalized, router = routers.value) {
+    if (to.meta?.noAuth) {
+      return true;
+    }
+    for (const route of router) {
+      if (route.name === to.name.toString()) {
         return true;
       }
-      if (r.children) {
-        if (hasRoute(name, r.children) === true) {
+      if (route.children) {
+        if (hasRoute(to, route.children) === true) {
           return true;
         }
       }

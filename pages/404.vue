@@ -4,7 +4,12 @@
   </Result>
 </template>
 <script setup lang="ts">
+useHead({
+  title: '404 Not Found',
+  meta: [{ name: 'description', content: '抱歉，您访问的页面不存在' }],
+});
 definePageMeta({
-  title: '404',
+  layout: false,
+  noAuth: true,
 });
 </script>

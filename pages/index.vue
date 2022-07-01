@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <t-input-number v-model="counter" />
+      <t-input-number v-model="count" />
     </div>
     <t-input
       v-model="name"
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-const counter = useCounter();
+const { count } = useCounter();
 const name = ref('');
 
 definePageMeta({

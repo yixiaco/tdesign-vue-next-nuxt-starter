@@ -134,11 +134,11 @@ const changeCollapsed = () => {
 };
 
 const handleNav = (url) => {
-  router.push(url);
+  navigateTo(url);
 };
 
 const handleLogout = () => {
-  router.push(`/login?redirect=${router.currentRoute.value.fullPath}`);
+  navigateTo(`/login?redirect=${router.currentRoute.value.fullPath}`);
 };
 
 const navToGitHub = () => {

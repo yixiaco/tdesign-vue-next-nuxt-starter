@@ -150,9 +150,11 @@ const changeColor = (hex: string) => {
 };
 
 onMounted(() => {
-  document.querySelector('.dynamic-color-btn').addEventListener('click', () => {
-    isColoPickerDisplay.value = true;
-  });
+  if (process.browser) {
+    document.querySelector('.dynamic-color-btn').addEventListener('click', () => {
+      isColoPickerDisplay.value = true;
+    });
+  }
 });
 
 const onPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {

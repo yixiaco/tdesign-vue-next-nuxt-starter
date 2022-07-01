@@ -102,17 +102,13 @@ const switchType = (val: string) => {
   type.value = val;
 };
 
-const router = useRouter();
-
 const onSubmit = async ({ validateResult }) => {
   if (validateResult === true) {
     try {
       await userStore.login(formData.value);
 
       MessagePlugin.success('登陆成功');
-      router.push({
-        path: '/dashboard/base',
-      });
+      navigateTo('/dashboard/base');
     } catch (e) {
       console.log(e);
       MessagePlugin.error(e.message);

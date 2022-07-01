@@ -1,12 +1,15 @@
 import { acceptHMRUpdate, defineStore } from 'pinia';
+import { useStorage } from '@vueuse/core';
+import { TOKEN_NAME } from '@/config/global';
 
 const InitUserInfo = {
   roles: [],
 };
 
 export const useUserStore = defineStore('user', () => {
-  // 默认token不走权限
-  const token = ref('main_token');
+  // 此处持久化可以使用 https://nitro.unjs.io/guide/storage.html 方案
+  // 默认token不走权限，这里使用useStorage存储在cookie中
+  const token = useStorage(TOKEN_NAME, 'main_token');
   const userInfo = ref(InitUserInfo);
 
   const roles = computed(() => userInfo.value?.roles);
@@ -65,6 +68,7 @@ export const useUserStore = defineStore('user', () => {
   }
 
   function logout() {
+    console.log('登出');
     token.value = '';
     userInfo.value = InitUserInfo;
   }

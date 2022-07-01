@@ -23,10 +23,12 @@
   </div>
 </template>
 <script setup lang="ts">
+useHead({
+  title: '登录到 TDesign Starter',
+  meta: [{ name: 'description', content: '登录到 TDesign Starter' }],
+});
 definePageMeta({
   layout: false,
-  title: '登录到 TDesign Starter',
-  hidden: true,
 });
 
 const type = ref('login');
