@@ -82,42 +82,42 @@ export default <Array<MenuRoute>>[
     children: [
       {
         path: 'success',
-        name: 'resultSuccess',
+        name: 'result-success',
         meta: { title: '成功页' },
       },
       {
         path: 'fail',
-        name: 'resultFail',
+        name: 'result-fail',
         meta: { title: '失败页' },
       },
       {
         path: 'network-error',
-        name: 'resultNetworkError',
+        name: 'result-network-error',
         meta: { title: '网络异常' },
       },
       {
         path: '403',
-        name: 'result403',
+        name: 'result-403',
         meta: { title: '无权限' },
       },
       {
         path: '404',
-        name: 'result404',
+        name: 'result-404',
         meta: { title: '访问页面不存在页' },
       },
       {
         path: '500',
-        name: 'result500',
+        name: 'result-500',
         meta: { title: '服务器出错页' },
       },
       {
         path: 'browser-incompatible',
-        name: 'resultBrowserIncompatible',
+        name: 'result-browser-incompatible',
         meta: { title: '浏览器不兼容页' },
       },
       {
         path: 'maintenance',
-        name: 'resultMaintenance',
+        name: 'result-maintenance',
         meta: { title: '系统维护页' },
       },
     ],
