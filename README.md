@@ -38,6 +38,7 @@ TDesign Vue Next Starter 是一个基于 TDesign。使用 `Vue3`、`Nuxt3`、`Pi
 - 多种空间布局
 - 内置 Mock 数据方案
 
+<!-- 
 ### 使用
 
 > 通过 `tdesign-starter-cli` 初始化项目仓库
@@ -48,7 +49,7 @@ npm i tdesign-starter-cli@latest -g
 
 ## 2、创建项目
 td-starter init
-```
+``` -->
 
 ### 开发
 
@@ -65,10 +66,9 @@ npm run dev
 ```bash
 ## 构建正式环境
 npm run build
-
-## 构建测试环境
-npm run build:test
 ```
+<!-- ## 构建测试环境
+npm run build:test -->
 
 ### 其他
 
@@ -91,7 +91,7 @@ npm run stylelint:fix
 
 ### 如何贡献
 
-非常欢迎您的贡献！提交您的 [Issue](https://github.com/tencent/tdesign-vue-next-starter/issues/new/choose) 或者提交 [Pull Request](https://github.com/Tencent/tdesign-vue-next-starter/pulls)。
+非常欢迎您的贡献！提交您的 [Issue](https://github.com/yixiaco/tdesign-vue-next-nuxt-starter/issues/new/choose) 或者提交 [Pull Request](https://github.com/yixiaco/tdesign-vue-next-nuxt-starter/pulls) 。
 
 #### Pull Request
 

@@ -5,7 +5,11 @@
     "dev": "nuxi dev -p=3000",
     "generate": "nuxi generate",
     "static": "npm run build && npm run generate",
-    "preview": "nuxi preview"
+    "preview": "nuxi preview",
+    "lint": "eslint --ext .vue,.js,.jsx,.ts,.tsx ./ --max-warnings 0",
+    "lint:fix": "eslint --ext .vue,.js,jsx,.ts,.tsx ./ --max-warnings 0 --fix",
+    "stylelint": "stylelint src/**/*.{html,vue,sass,less}",
+    "stylelint:fix": "stylelint --fix src/**/*.{html,vue,vss,sass,less}"
   },
   "devDependencies": {
     "@pinia/nuxt": "^0.1.9",
