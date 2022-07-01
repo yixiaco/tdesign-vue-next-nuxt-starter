@@ -102,13 +102,16 @@ const switchType = (val: string) => {
   type.value = val;
 };
 
+const route = useRoute();
+
 const onSubmit = async ({ validateResult }) => {
   if (validateResult === true) {
     try {
       await userStore.login(formData.value);
+      const { redirect } = route.query;
 
       MessagePlugin.success('登陆成功');
-      navigateTo('/dashboard/base');
+      navigateTo((redirect as string) ?? '/dashboard/base');
     } catch (e) {
       console.log(e);
       MessagePlugin.error(e.message);
