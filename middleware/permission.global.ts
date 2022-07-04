@@ -2,7 +2,7 @@
 // 也可以直接调用它来执行页面导航
 // abortNavigation (err?: string | Error)- 中止导航，并显示可选错误消息
 
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async (to /* , from */) => {
   const permissionStore = usePermissionStore();
 
   const { whiteListRouters } = permissionStore;

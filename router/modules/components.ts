@@ -1,13 +1,13 @@
-import ListIcon from 'icon/assets-slide-list.svg';
-import FormIcon from 'icon/assets-slide-form.svg';
-import DetailIcon from 'icon/assets-slide-detail.svg';
+// import ListIcon from 'icon/assets-slide-list.svg';
+// import FormIcon from 'icon/assets-slide-form.svg';
+// import DetailIcon from 'icon/assets-slide-detail.svg';
 import { MenuRoute } from '~/types/interface';
 
 export default <Array<MenuRoute>>[
   {
     path: '/list',
     name: 'list',
-    meta: { title: '列表页'/*, icon: ListIcon*/ },
+    meta: { title: '列表页' /* , icon: ListIcon */ },
     children: [
       {
         path: 'base',
@@ -34,7 +34,7 @@ export default <Array<MenuRoute>>[
   {
     path: '/form',
     name: 'form',
-    meta: { title: '表单页'/*, icon: FormIcon*/ },
+    meta: { title: '表单页' /* , icon: FormIcon */ },
     children: [
       {
         path: 'base',
@@ -51,7 +51,7 @@ export default <Array<MenuRoute>>[
   {
     path: '/detail',
     name: 'detail',
-    meta: { title: '详情页'/*, icon: DetailIcon*/ },
+    meta: { title: '详情页' /* , icon: DetailIcon */ },
     children: [
       {
         path: 'base',

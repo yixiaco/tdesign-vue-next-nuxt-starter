@@ -1,4 +1,4 @@
-import LogoutIcon from 'icon/assets-slide-logout.svg';
+// import LogoutIcon from 'icon/assets-slide-logout.svg';
 import { MenuRoute } from '~/types/interface';
 
 export default <Array<MenuRoute>>[
@@ -17,7 +17,7 @@ export default <Array<MenuRoute>>[
   {
     path: '/loginRedirect',
     name: 'loginRedirect',
-    meta: { title: '登录页'/*, icon: LogoutIcon*/ },
+    meta: { title: '登录页' /* , icon: LogoutIcon */ },
     children: [
       {
         path: 'login',

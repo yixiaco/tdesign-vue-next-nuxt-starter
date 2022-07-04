@@ -8,8 +8,8 @@
     "preview": "nuxi preview",
     "lint": "eslint --ext .vue,.js,.jsx,.ts,.tsx ./ --max-warnings 0",
     "lint:fix": "eslint --ext .vue,.js,jsx,.ts,.tsx ./ --max-warnings 0 --fix",
-    "stylelint": "stylelint src/**/*.{html,vue,sass,less}",
-    "stylelint:fix": "stylelint --fix src/**/*.{html,vue,vss,sass,less}"
+    "stylelint": "stylelint assets/style/**/*.{html,vue,sass,less}",
+    "stylelint:fix": "stylelint --fix assets/style/**/*.{html,vue,vss,sass,less}"
   },
   "devDependencies": {
     "@pinia/nuxt": "^0.1.9",

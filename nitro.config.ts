@@ -1,5 +1,5 @@
-import { defineNitroConfig } from 'nitropack'
+import { defineNitroConfig } from 'nitropack';
 
 export default defineNitroConfig({
   timing: true,
-})
+});
