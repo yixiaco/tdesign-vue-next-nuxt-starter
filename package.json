@@ -8,8 +8,8 @@
     "preview": "nuxi preview",
     "lint": "eslint --ext .vue,.js,.jsx,.ts,.tsx ./ --max-warnings 0",
     "lint:fix": "eslint --ext .vue,.js,jsx,.ts,.tsx ./ --max-warnings 0 --fix",
-    "stylelint": "stylelint assets/style/**/*.{html,vue,sass,less}",
-    "stylelint:fix": "stylelint --fix assets/style/**/*.{html,vue,vss,sass,less}"
+    "stylelint": "stylelint assets/style/**/*.{html,vue,sass,less} --custom-syntax postcss-less",
+    "stylelint:fix": "stylelint --fix assets/style/**/*.{html,vue,vss,sass,less} --custom-syntax postcss-less"
   },
   "devDependencies": {
     "@pinia/nuxt": "^0.1.9",
@@ -35,20 +35,21 @@
     "nuxt": "3.0.0-rc.4",
     "nuxt-lodash": "^2.2.0",
     "pinia": "^2.0.14",
+    "postcss-less": "^6.0.0",
     "prettier": "^2.6.2",
     "qrcode.vue": "^3.3.3",
     "qs": "^6.10.3",
-    "stylelint": "^13.13.1",
+    "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-less": "^1.0.1",
-    "stylelint-order": "^4.1.0",
+    "stylelint-less": "^1.0.6",
+    "stylelint-order": "^5.0.0",
     "tdesign-icons-vue-next": "^0.1.2",
     "tdesign-vue-next": "^0.16.0",
     "tvision-color": "^1.4.0",
     "typescript": "^4.7.3",
     "vite-svg-loader": "^3.3.0",
-    "vue-color-kit": "^1.0.5",
-    "vue-clipboard3": "^2.0.0"
+    "vue-clipboard3": "^2.0.0",
+    "vue-color-kit": "^1.0.5"
   },
   "config": {
     "commitizen": {
