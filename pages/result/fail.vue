@@ -26,13 +26,13 @@ useHead({
   height: 75vh;
   &-icon {
     font-size: 64px;
-    color: var(--tdvns-text-color-secondary);
+    color: var(--td-text-color-secondary);
   }
 
   &-title {
     margin-top: 16px;
     font-size: 20px;
-    color: var(--tdvns-text-color-primary);
+    color: var(--td-text-color-primary);
     text-align: center;
     line-height: 22px;
     font-weight: 500;
@@ -41,7 +41,7 @@ useHead({
   &-describe {
     margin: 8px 0 32px;
     font-size: 14px;
-    color: var(--tdvns-text-color-secondary);
+    color: var(--td-text-color-secondary);
     line-height: 22px;
   }
 }

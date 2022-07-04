@@ -17,6 +17,12 @@ const useComputed = (props) => {
 
   const active = computed(() => getActive());
 
+  const defaultExpanded = computed(() => {
+    const path = getActive();
+    const parentPath = path.substring(0, path.lastIndexOf('/'));
+    return parentPath === '' ? [] : [parentPath];
+  });
+
   const sideNavCls = computed(() => {
     const { isCompact } = props;
     return [
@@ -46,6 +52,7 @@ const useComputed = (props) => {
 
   return {
     active,
+    defaultExpanded,
     collapsed,
     sideNavCls,
     menuCls,
@@ -135,6 +142,7 @@ export default defineComponent({
           class={this.menuCls}
           theme={this.theme}
           value={this.active}
+          default-expanded={this.defaultExpanded}
           collapsed={this.collapsed}
           v-slots={{
             logo: () =>
