@@ -9,7 +9,9 @@
     "lint": "eslint --ext .vue,.js,.jsx,.ts,.tsx ./ --max-warnings 0",
     "lint:fix": "eslint --ext .vue,.js,jsx,.ts,.tsx ./ --max-warnings 0 --fix",
     "stylelint": "stylelint assets/style/**/*.{html,vue,sass,less} --custom-syntax postcss-less",
-    "stylelint:fix": "stylelint --fix assets/style/**/*.{html,vue,vss,sass,less} --custom-syntax postcss-less"
+    "stylelint:fix": "stylelint --fix assets/style/**/*.{html,vue,vss,sass,less} --custom-syntax postcss-less",
+    "test": "echo \"no test specified,work in process\"",
+    "test:coverage": "echo \"no test:coverage specified,work in process\""
   },
   "devDependencies": {
     "@pinia/nuxt": "^0.1.9",
