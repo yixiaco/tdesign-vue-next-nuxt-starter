@@ -10,6 +10,7 @@
     "lint:fix": "eslint --ext .vue,.js,jsx,.ts,.tsx ./ --max-warnings 0 --fix",
     "stylelint": "stylelint assets/style/**/*.{html,vue,sass,less} --custom-syntax postcss-less",
     "stylelint:fix": "stylelint --fix assets/style/**/*.{html,vue,vss,sass,less} --custom-syntax postcss-less",
+    "site:preview": "npm run build && cp -r .output _site",
     "test": "echo \"no test specified,work in process\"",
     "test:coverage": "echo \"no test:coverage specified,work in process\""
   },
@@ -34,7 +35,7 @@
     "less": "^4.1.2",
     "lint-staged": "^12.3.4",
     "nprogress": "^1.0.0-1",
-    "nuxt": "3.0.0-rc.4",
+    "nuxt": "3.0.0-rc.3",
     "nuxt-lodash": "^2.2.0",
     "pinia": "^2.0.14",
     "postcss-less": "^6.0.0",
