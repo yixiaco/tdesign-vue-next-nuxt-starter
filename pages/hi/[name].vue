@@ -2,7 +2,7 @@
   <div>
     <h1>Hi! {{ $route.params.name }} , counter: {{ counter }}</h1>
     <div>
-      <t-button shape="square" variant="outline" @click="$router.back()">
+      <t-button shape="rectangle" variant="text" @click="$router.back()">
         Back
       </t-button>
     </div>

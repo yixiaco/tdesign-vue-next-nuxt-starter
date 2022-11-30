@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt/config'
 import { fileURLToPath } from 'url'
 import svgLoader from 'vite-svg-loader'
 
@@ -14,18 +14,20 @@ export default defineNuxtConfig({
     'images': fileURLToPath(new URL('./assets/images', import.meta.url)),
     'style': fileURLToPath(new URL('./assets/style', import.meta.url)),
   },
-  // meta
-  meta: {
-    title: 'TdesignVueNext + Nuxt 3',
-    meta: [
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'TdesignVueNext + Nuxt3',
-      },
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  app: {
+    head: {
+      title: 'TdesignVueNext + Nuxt 3',
+      meta: [
+        // <meta name="viewport" content="width=device-width, initial-scale=1">
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'TdesignVueNext + Nuxt3',
+        },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    }
   },
   // css
   css: ['~/assets/style/index.less'],
