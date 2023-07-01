@@ -47,7 +47,7 @@
     "stylelint-less": "^1.0.6",
     "stylelint-order": "^5.0.0",
     "tdesign-icons-vue-next": "^0.1.2",
-    "tdesign-vue-next": "^0.16.0",
+    "tdesign-vue-next": "^1.3.9",
     "tvision-color": "^1.4.0",
     "typescript": "^4.7.3",
     "vite-svg-loader": "^3.3.0",
