@@ -49,7 +49,7 @@
     "tdesign-icons-vue-next": "^0.1.2",
     "tdesign-vue-next": "^0.16.0",
     "tvision-color": "^1.4.0",
-    "typescript": "^4.7.3",
+    "typescript": "^5.2.2",
     "vite-svg-loader": "^3.3.0",
     "vue-clipboard3": "^2.0.0",
     "vue-color-kit": "^1.0.5"
