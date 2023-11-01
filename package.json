@@ -15,7 +15,7 @@
     "test:coverage": "echo \"no test:coverage specified,work in process\""
   },
   "devDependencies": {
-    "@pinia/nuxt": "^0.1.9",
+    "@pinia/nuxt": "^0.5.1",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "@vueuse/core": "^8.6.0",
