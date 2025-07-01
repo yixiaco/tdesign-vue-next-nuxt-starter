@@ -37,7 +37,7 @@
     "nprogress": "^1.0.0-1",
     "nuxt": "3.0.0-rc.3",
     "nuxt-lodash": "^2.2.0",
-    "pinia": "^2.0.14",
+    "pinia": "^3.0.3",
     "postcss-less": "^6.0.0",
     "prettier": "^2.6.2",
     "qrcode.vue": "^3.3.3",
